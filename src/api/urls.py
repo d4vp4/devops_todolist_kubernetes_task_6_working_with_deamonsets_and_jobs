@@ -16,5 +16,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
+    path('liveness/', views.liveness),
+    path('ready/', views.readiness),
     path('health/', views.health),
 ]

@@ -17,7 +17,7 @@ spec:
       containers:
       - name: busybox-curl
         image: ikulyk404/busyboxplus:curl
-        command: ["sh", "-c", "while true; do curl -s http://todo-service/api/readiness/; sleep 5; done"]
+        command: ["sh", "-c", "while true; do curl -s http://todo-service/api/ready/; sleep 5; done"]
         resources:
           requests:
             memory: "16Mi"
