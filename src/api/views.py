@@ -74,3 +74,6 @@ def ready(request):
     else:
         # After 30 seconds, return HTTP 200
         return HttpResponse("Readiness OK", content_type="text/plain")
+
+def health(request):
+    return JsonResponse({"status": "healthy"})

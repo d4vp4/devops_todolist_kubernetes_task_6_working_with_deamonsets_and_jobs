@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: curl-daemonset
+  namespace: mateapp
+  labels:
+    app: curl-logger
+spec:
+  selector:
+    matchLabels:
+      app: curl-logger
+  template:
+    metadata:
+      labels:
+        app: curl-logger
+    spec:
+      containers:
+      - name: busybox-curl
+        image: ikulyk404/busyboxplus:curl
+        command: ["sh", "-c", "while true; do curl -s http://todo-service/api/readiness/; sleep 5; done"]
+        resources:
+          requests:
+            memory: "16Mi"
+            cpu: "10m"
+          limits:
+            memory: "32Mi"
+            cpu: "50m"

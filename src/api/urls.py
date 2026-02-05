@@ -14,3 +14,7 @@ urlpatterns = [
     path("health", views.health, name="health"),  # API Health check endpoint
     path("ready", views.ready, name="ready"),
 ]
+
+urlpatterns += [
+    path('health/', views.health),
+]
